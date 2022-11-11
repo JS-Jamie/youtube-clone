@@ -11,6 +11,7 @@ import SportsEsportsOutlinedIcon from '@mui/icons-material/SportsEsportsOutlined
 import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
@@ -18,10 +19,12 @@ import SettingsBrightnessOutlinedIcon from '@mui/icons-material/SettingsBrightne
 
 const Container = styled.div`
   flex: 1;
-  background-color: #202020;
+  background-color: ${({ theme }) => theme.bg};
   height: 100vh;
-  color: white;
+  color: ${({ theme }) => theme.text};
   font-size: 14px;
+  position: sticky;
+  top: 0;
 `;
 
 const Wrapper = styled.div`
@@ -53,6 +56,21 @@ const Hr = styled.hr`
   border: 0.5px solid #373737;
 `;
 
+const Login = styled.div``;
+const Button = styled.button`
+  padding: 5px 15px;
+  background-color: transparent;
+  border: 1px solid #3ea6ff;
+  color: #3ea6ff;
+  border-radious: 3px;
+  font-weight: 500;
+  margin-top: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+`;
+
 const Menu = () => {
   return (
     <Container>
@@ -82,6 +100,14 @@ const Menu = () => {
           <HistoryOutlinedIcon />
           History
         </Item>
+        <Hr />
+        <Login>
+          Sign in to like videos, comment, and subscribe.
+          <Button>
+            <AccountCircleOutlinedIcon />
+            SIGN IN
+          </Button>
+        </Login>
         <Hr />
         <Item>
           <LibraryMusicOutlinedIcon />
