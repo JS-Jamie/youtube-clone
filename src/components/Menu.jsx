@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import UTube from '../img/youtube-logo.png';
 import HomeIcon from '@mui/icons-material/Home';
 import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
@@ -82,82 +83,84 @@ const Menu = ({ darkMode, setDarkMode }) => {
   return (
     <Container>
       <Wrapper>
-        <Logo>
-          <Img src={UTube} />
-          UTube
-        </Logo>
-        <Item>
-          <HomeIcon />
-          Home
-        </Item>
-        <Item>
-          <ExploreOutlinedIcon />
-          Explore
-        </Item>
-        <Item>
-          <SubscriptionsOutlinedIcon />
-          Subscriptions
-        </Item>
-        <Hr />
-        <Item>
-          <VideoLibraryOutlinedIcon />
-          Library
-        </Item>
-        <Item>
-          <HistoryOutlinedIcon />
-          History
-        </Item>
-        <Hr />
-        <Login>
-          Sign in to like videos, comment, and subscribe.
-          <Button>
-            <AccountCircleOutlinedIcon />
-            SIGN IN
-          </Button>
-        </Login>
-        <Hr />
-        <Title>BEST OF UTUBE</Title>
-        <Item>
-          <LibraryMusicOutlinedIcon />
-          Music
-        </Item>
-        <Item>
-          <SportsEsportsOutlinedIcon />
-          Sports
-        </Item>
-        <Item>
-          <HomeIcon />
-          Gaming
-        </Item>
-        <Item>
-          <MovieOutlinedIcon />
-          Movies
-        </Item>
-        <Item>
-          <ArticleOutlinedIcon />
-          News
-        </Item>
-        <Item>
-          <LiveTvOutlinedIcon />
-          Live
-        </Item>
-        <Hr />
-        <Item>
-          <SettingsOutlinedIcon />
-          Settings
-        </Item>
-        <Item>
-          <FlagOutlinedIcon />
-          Report
-        </Item>
-        <Item>
-          <HelpOutlineOutlinedIcon />
-          Help
-        </Item>
-        <Item onClick={() => setDarkMode(!darkMode)}>
-          <SettingsBrightnessOutlinedIcon />
-          Light Mode
-        </Item>
+        <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Logo>
+            <Img src={UTube} />
+            UTube
+          </Logo>
+          <Item>
+            <HomeIcon />
+            Home
+          </Item>
+          <Item>
+            <ExploreOutlinedIcon />
+            Explore
+          </Item>
+          <Item>
+            <SubscriptionsOutlinedIcon />
+            Subscriptions
+          </Item>
+          <Hr />
+          <Item>
+            <VideoLibraryOutlinedIcon />
+            Library
+          </Item>
+          <Item>
+            <HistoryOutlinedIcon />
+            History
+          </Item>
+          <Hr />
+          <Login>
+            Sign in to like videos, comment, and subscribe.
+            <Button>
+              <AccountCircleOutlinedIcon />
+              SIGN IN
+            </Button>
+          </Login>
+          <Hr />
+          <Title>BEST OF UTUBE</Title>
+          <Item>
+            <LibraryMusicOutlinedIcon />
+            Music
+          </Item>
+          <Item>
+            <SportsEsportsOutlinedIcon />
+            Sports
+          </Item>
+          <Item>
+            <HomeIcon />
+            Gaming
+          </Item>
+          <Item>
+            <MovieOutlinedIcon />
+            Movies
+          </Item>
+          <Item>
+            <ArticleOutlinedIcon />
+            News
+          </Item>
+          <Item>
+            <LiveTvOutlinedIcon />
+            Live
+          </Item>
+          <Hr />
+          <Item>
+            <SettingsOutlinedIcon />
+            Settings
+          </Item>
+          <Item>
+            <FlagOutlinedIcon />
+            Report
+          </Item>
+          <Item>
+            <HelpOutlineOutlinedIcon />
+            Help
+          </Item>
+          <Item onClick={() => setDarkMode(!darkMode)}>
+            <SettingsBrightnessOutlinedIcon />
+            Light Mode
+          </Item>
+        </Link>
       </Wrapper>
     </Container>
   );
