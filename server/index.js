@@ -5,6 +5,7 @@ import authRoutes from './routes/auth.js';
 import userRoutes from './routes/users.js';
 import videoRoutes from './routes/videos.js';
 import commentRoutes from './routes/comments.js';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 dotenv.config();
@@ -20,6 +21,7 @@ const connect = () => {
     });
 };
 
+app.use(cookieParser()); //allowing app to send auth token to user when they log in
 app.use(express.json()); //allowing app to take json data
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
