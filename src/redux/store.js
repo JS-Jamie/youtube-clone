@@ -20,7 +20,7 @@ const persistConfig = {
   storage,
 };
 
-const rootReducer = combineReducers({ user: userReducer, videoReducer });
+const rootReducer = combineReducers({ user: userReducer, video: videoReducer });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

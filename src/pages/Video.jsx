@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownOffAltOutlinedIcon from '@mui/icons-material/ThumbDownOffAltOutlined';
 import ReplyOutlinedIcon from '@mui/icons-material/ReplyOutlined';
 import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined';
@@ -10,6 +11,8 @@ import Comments from '../components/Comments';
 import Card from '../components/Card';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import { format } from 'timeago.js';
+import { fetchStart, fetchSuccess, fetchFailure } from '../redux/videoSlice';
 
 const Container = styled.div`
   display: flex;
@@ -109,25 +112,26 @@ const Subscribe = styled.button`
 
 const Video = () => {
   const { currentUser } = useSelector((state) => state.user);
+  const { currentVideo } = useSelector((state) => state.video);
   const dispatch = useDispatch();
 
   const path = useLocation().pathname.split('/')[2];
 
-  const [video, setVideo] = useState({});
   const [channel, setChannel] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const videoRes = await axios.get(`/videos/find/${path}`);
-        const channelRes = await axios.get(`/users/find/${videoRes.userId}`);
-
-        setVideo(videoRes.data);
+        const channelRes = await axios.get(
+          `/users/find/${videoRes.data.userId}`
+        );
         setChannel(channelRes.data);
+        dispatch(fetchSuccess(videoRes.data));
       } catch (error) {}
     };
     fetchData();
-  }, [path]);
+  }, [path, dispatch]);
 
   return (
     <Container>
@@ -143,12 +147,19 @@ const Video = () => {
             allowFullScreen
           ></iframe>
         </VideoWrapper>
-        <Title>Test Video</Title>
+        <Title>{currentVideo?.title}</Title>
         <Details>
-          <Info>4,536,234 views · Nov 17, 2022</Info>
+          <Info>
+            {currentVideo?.views} views · {format(currentVideo?.createdAt)}
+          </Info>
           <Buttons>
             <Button>
-              <ThumbUpOutlinedIcon /> 3467
+              {currentVideo?.likes?.includes(currentUser._id) ? (
+                <ThumbUpIcon />
+              ) : (
+                <ThumbUpOutlinedIcon />
+              )}{' '}
+              {currentVideo?.likes?.length}
             </Button>
             <Button>
               <ThumbDownOffAltOutlinedIcon /> Dislike
@@ -165,16 +176,11 @@ const Video = () => {
         <Hr />
         <Channel>
           <ChannelInfo>
-            <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXZihlM2YhFSxwXjTQ_5IlGsOh3WY0yQ53kQ&usqp=CAU' />
+            <Image src={channel.img} />
             <ChannelDetail>
-              <ChannelName>Jamie Jeesoo Shin</ChannelName>
-              <ChannelCouter>300k subscribers</ChannelCouter>
-              <Description>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </Description>
+              <ChannelName>{channel.name}</ChannelName>
+              <ChannelCouter>{channel.subscribers} subscribers</ChannelCouter>
+              <Description>{currentVideo?.desc}</Description>
             </ChannelDetail>
           </ChannelInfo>
           <Subscribe>SUBSCRIBE</Subscribe>
