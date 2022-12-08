@@ -1,6 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Comment from './Comment';
@@ -38,8 +37,8 @@ const Comments = ({ videoId }) => {
         const res = await axios.get(`/comments/${videoId}`);
         setComments(res.data);
       } catch (error) {}
-      fetchComments();
     };
+    fetchComments();
   }, [videoId]);
 
   return (
