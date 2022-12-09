@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
@@ -69,7 +69,9 @@ const Avatar = styled.img`
 `;
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState('');
   const currentUser = useSelector((state) => state.user.currentUser);
 
   return (
@@ -77,8 +79,13 @@ const Navbar = () => {
       <Container>
         <Wrapper>
           <Search>
-            <Input placeholder='Search' />
-            <SearchOutlinedIcon />
+            <Input
+              placeholder='Search'
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <SearchOutlinedIcon
+              onClick={() => navigate(`/search?q=${query}`)}
+            />
           </Search>
           {currentUser ? (
             <User>
