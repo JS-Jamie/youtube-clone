@@ -30,7 +30,7 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  padding: 18px 26px;
+  padding: 16px 26px;
 `;
 
 const Logo = styled.div`
@@ -38,7 +38,7 @@ const Logo = styled.div`
   align-items: center;
   gap: 5px;
   font-weight: bold;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 `;
 
 const Img = styled.img`
@@ -46,19 +46,19 @@ const Img = styled.img`
 `;
 
 const Item = styled.div`
-display: flex;
-align-items: center;
-gap 20px;
-cursor: pointer;
-padding: 7.5px 0px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  padding: 1.7px 0px;
 
-&:hover{
-  background-color: ${({ theme }) => theme.soft};
-}
+  &:hover {
+    background-color: ${({ theme }) => theme.soft};
+  }
 `;
 
 const Hr = styled.hr`
-  margin: 15px 0px;
+  margin: 12px 0px;
   border: 0.5px solid ${({ theme }) => theme.soft};
 `;
 
@@ -81,7 +81,7 @@ const Title = styled.h2`
   font-size: 14px;
   font-weight: 500;
   color: #aaaaaa;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 `;
 
 const Menu = ({ darkMode, setDarkMode }) => {
