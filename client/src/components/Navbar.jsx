@@ -39,6 +39,7 @@ const Input = styled.input`
   border: none;
   background-color: transparent;
   outline: none;
+  color: ${({ theme }) => theme.text};
 `;
 const Button = styled.button`
   padding: 5px 15px;

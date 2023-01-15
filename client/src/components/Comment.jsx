@@ -44,7 +44,7 @@ const Comment = ({ comment }) => {
       setChannel(res.data);
     };
     fetchComment();
-  }, [comment.userId]);
+  }, [comment?.userId]);
 
   return (
     <Container>
@@ -53,7 +53,7 @@ const Comment = ({ comment }) => {
         <Name>
           {channel.name} <Date>1 day ago</Date>
         </Name>
-        <Text>{comment.desc}</Text>
+        <Text>{comment?.desc}</Text>
       </Details>
     </Container>
   );

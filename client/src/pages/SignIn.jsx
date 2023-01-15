@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { loginFailure, loginStart, loginSuccess } from '../redux/userSlice';
 import { auth, provider } from '../firebase';
 import { signInWithPopup } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -29,10 +30,10 @@ const Title = styled.h1`
   font-size: 24px;
 `;
 
-const SubTitle = styled.h2`
-  font-size: 20px;
-  font-weight: 300;
-`;
+// const SubTitle = styled.h2`
+//   font-size: 20px;
+//   font-weight: 300;
+// `;
 
 const Input = styled.input`
   border: 1px solid ${({ theme }) => theme.soft};
@@ -73,6 +74,7 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const Navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -80,6 +82,7 @@ const SignIn = () => {
     try {
       const res = await axios.post('/auth/signin', { name, password });
       dispatch(loginSuccess(res.data));
+      Navigate('/');
     } catch (error) {
       dispatch(loginFailure());
     }
@@ -108,7 +111,6 @@ const SignIn = () => {
     <Container>
       <Wrapper>
         <Title>Sign In</Title>
-        <SubTitle>to continue to Jamie Jeesoo Shin</SubTitle>
         <Input
           placeholder='username'
           onChange={(e) => setName(e.target.value)}
