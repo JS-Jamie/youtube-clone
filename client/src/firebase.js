@@ -1,19 +1,21 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+//Commented out all the codes below due to the change of the plan to use YouTube Api instead of using database for videos
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-};
+// import { initializeApp } from 'firebase/app';
+// import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth();
-export const provider = new GoogleAuthProvider();
+// // Your web app's Firebase configuration
+// const firebaseConfig = {
+//   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+//   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+//   projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+//   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+//   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+//   appId: process.env.REACT_APP_FIREBASE_APP_ID,
+// };
 
-export default app;
+// // Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+// export const auth = getAuth();
+// export const provider = new GoogleAuthProvider();
+
+// export default app;
