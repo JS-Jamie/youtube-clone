@@ -1,34 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { useLocation } from 'react-router-dom';
-import axios from 'axios';
-import Card from '../components/Card';
+//Commented out all the codes below due to the change of the plan to use YouTube Api instead of using database for videos
 
-const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-`;
+// import React, { useEffect, useState } from 'react';
+// import styled from 'styled-components';
+// import { useLocation } from 'react-router-dom';
+// import axios from 'axios';
+// import Card from '../components/Card';
 
-const Search = () => {
-  const [videos, setVideos] = useState([]);
-  const query = useLocation().search;
+// const Container = styled.div`
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: 10px;
+// `;
 
-  useEffect(() => {
-    const fetchVideo = async () => {
-      const res = await axios.get(`/videos/search${query}`);
-      setVideos(res.data);
-    };
-    fetchVideo();
-  }, [query]);
+// const Search = () => {
+//   const [videos, setVideos] = useState([]);
+//   const query = useLocation().search;
 
-  return (
-    <Container>
-      {videos.map((video) => (
-        <Card key={video._id} video={video} />
-      ))}
-    </Container>
-  );
-};
+//   useEffect(() => {
+//     const fetchVideo = async () => {
+//       const res = await axios.get(`/videos/search${query}`);
+//       setVideos(res.data);
+//     };
+//     fetchVideo();
+//   }, [query]);
 
-export default Search;
+//   return (
+//     <Container>
+//       {videos.map((video) => (
+//         <Card key={video._id} video={video} />
+//       ))}
+//     </Container>
+//   );
+// };
+
+// export default Search;

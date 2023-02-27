@@ -85,7 +85,8 @@ const Navbar = () => {
               onChange={(e) => setQuery(e.target.value)}
             />
             <SearchOutlinedIcon
-              onClick={() => navigate(`/search?q=${query}`)}
+              style={{ cursor: 'pointer' }}
+              // onClick={() => navigate(`/search?q=${query}`)}
             />
           </Search>
           {currentUser ? (
