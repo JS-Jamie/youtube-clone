@@ -1,62 +1,64 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+//Commented out all the codes below due to the change of the plan to use YouTube Api instead of using database for videos
 
-const Container = styled.div`
-  display: flex;
-  gap: 10px;
-  margin: 30px 0px;
-`;
-const Avatar = styled.img`
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-`;
+// import axios from 'axios';
+// import React, { useEffect, useState } from 'react';
+// import styled from 'styled-components';
 
-const Details = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  color: ${({ theme }) => theme.text};
-`;
+// const Container = styled.div`
+//   display: flex;
+//   gap: 10px;
+//   margin: 30px 0px;
+// `;
+// const Avatar = styled.img`
+//   width: 50px;
+//   height: 50px;
+//   border-radius: 50%;
+// `;
 
-const Name = styled.span`
-  font-size: 13px;
-  font-weight: 500;
-`;
-const Date = styled.span`
-  font-size: 12px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.textSoft};
-  margin-left: 5px;
-`;
+// const Details = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   gap: 10px;
+//   color: ${({ theme }) => theme.text};
+// `;
 
-const Text = styled.span`
-  font-size: 14px;
-`;
+// const Name = styled.span`
+//   font-size: 13px;
+//   font-weight: 500;
+// `;
+// const Date = styled.span`
+//   font-size: 12px;
+//   font-weight: 400;
+//   color: ${({ theme }) => theme.textSoft};
+//   margin-left: 5px;
+// `;
 
-const Comment = ({ comment }) => {
-  const [channel, setChannel] = useState({});
+// const Text = styled.span`
+//   font-size: 14px;
+// `;
 
-  useEffect(() => {
-    const fetchComment = async () => {
-      const res = await axios.get(`/users/find/${comment.userId}`);
-      setChannel(res.data);
-    };
-    fetchComment();
-  }, [comment?.userId]);
+// const Comment = ({ comment }) => {
+//   const [channel, setChannel] = useState({});
 
-  return (
-    <Container>
-      <Avatar src={channel.img} />
-      <Details>
-        <Name>
-          {channel.name} <Date>1 day ago</Date>
-        </Name>
-        <Text>{comment?.desc}</Text>
-      </Details>
-    </Container>
-  );
-};
+//   useEffect(() => {
+//     const fetchComment = async () => {
+//       const res = await axios.get(`/users/find/${comment.userId}`);
+//       setChannel(res.data);
+//     };
+//     fetchComment();
+//   }, [comment?.userId]);
 
-export default Comment;
+//   return (
+//     <Container>
+//       <Avatar src={channel.img} />
+//       <Details>
+//         <Name>
+//           {channel.name} <Date>1 day ago</Date>
+//         </Name>
+//         <Text>{comment?.desc}</Text>
+//       </Details>
+//     </Container>
+//   );
+// };
+
+// export default Comment;
